@@ -1,3 +1,6 @@
+# What is this?
+`cda` is a shell utility which stands for "Change Directory to Ancestor".
+
 # Why do you need this?
 Do you see yourself doing `cd ..` way too many times?
 Or even worse, doing `cd ../../../../../../../..` and making a guess that the directory you end up at is "close enough"?
