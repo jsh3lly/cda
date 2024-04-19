@@ -1,3 +1,4 @@
+#[cfg(test)]
 mod tests;
 
 use std::env::current_dir;
@@ -30,6 +31,11 @@ fn main() -> ExitCode {
         Some(a) => *a,
         None => 1
     };
+
+    if occurence_number == 0 {
+        println!("[ERROR] OCCURENCE must be greater than 0");
+        return ExitCode::from(0);
+    }
 
     let direction_to_search : DirectionToSearch = match matches.get_one::<bool>("reverse").unwrap() {
         true => DirectionToSearch::LeftToRight,
