@@ -9,7 +9,7 @@ And before you say "just organize your directories in a more meaningful way!", s
 `cda <ANCESTOR>` `cd`s you to the closest ancestor.
 
 Eg:
-CWD: /home/jshelly/my-repos/my-project/workspace1/module1/component3/feature/feature.rs
+`CWD: /home/jshelly/my-repos/my-project/workspace1/module1/component3/feature/feature.rs`
 ```
 $ cda my-project
 $ pwd
@@ -26,7 +26,7 @@ $ pwd
 If multiple ancestors exist with the same name, then it takes you to the closest one. Otherwise, you can specify which occurrence of ancestor you wanna go to.
 
 Eg:
-CWD: /home/jshelly/playground/dir/playground/dir
+`CWD: /home/jshelly/playground/dir/playground/dir`
 ```
 $ cda playground 2 #Second arg is occurence. By default, it is 1.
 $ pwd
