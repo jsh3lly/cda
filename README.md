@@ -7,6 +7,7 @@ And before you say "just organize your directories in a more meaningful way!", s
 
 # What does it do?
 `cda <ANCESTOR>` `cd`s you to the closest ancestor.
+
 Eg:
 CWD: /home/jshelly/my-repos/my-project/workspace1/module1/component3/feature/feature.rs
 ```
