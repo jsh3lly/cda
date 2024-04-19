@@ -3,7 +3,7 @@ Do you see yourself doing `cd ..` way too many times?
 Or even worse, doing `cd ../../../../../../../..` and making a guess that the directory you end up at is "close enough"?
 If yes, then this tool is for you.
 
-And before you think "just organize your directories in a more meaningful way!", sometimes I end up working with multiple parallel directory trees, for whatever reason.
+And before you say "just organize your directories in a more meaningful way!", sometimes I end up working with multiple parallel directory trees, for whatever reason.
 
 # What does it do?
 `cda <ANCESTOR>` `cd`s you to the closest ancestor.
