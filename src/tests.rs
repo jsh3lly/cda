@@ -71,6 +71,17 @@ fn ok6() {
     assert_eq!(cda_core(cwd, args), Ok("/apple/banana/mango/banana".to_string()))
 }
 
+#[test]
+fn ok7() {
+    let cwd = "/apple///banana//mango";
+    let args = Args {
+        ancestor_to_cd: "apple".to_string(),
+        occurence: 1,
+        direction_to_search: LeftToRight
+    };
+    assert_eq!(cda_core(cwd, args), Ok("/apple".to_string()))
+}
+
 // Tests where cda_core returns Err(())
 #[test]
 fn err1() {

@@ -58,11 +58,12 @@ fn main() -> ExitCode {
 }
 
 fn cda_core(cwd: &str, args : Args) -> Result<String, ()> {
-    let ancestors : Vec<&str> = cwd.split("/").filter(|x| !x.is_empty()).collect();
+    let mut ancestors : Vec<&str> = cwd.split("/").filter(|x| !x.is_empty()).collect();
+    ancestors.remove(ancestors.len()-1);
     let ancestors_len = ancestors.len();
     let mut is_ancestor_found = false;
 
-    let ancestors_iterator : Vec<&str> = match args.direction_to_search {
+    let mut ancestors_iterator : Vec<&str> = match args.direction_to_search {
         DirectionToSearch::RightToLeft => ancestors.clone().into_iter().rev().collect(),
         DirectionToSearch::LeftToRight => ancestors.clone().into_iter().collect(),
     };
@@ -90,17 +91,19 @@ fn cda_core(cwd: &str, args : Args) -> Result<String, ()> {
         idx += 1;
     }
 
-    let path : String = match args.direction_to_search {
-        DirectionToSearch::RightToLeft => {
-            "/".to_string() + &ancestors[0..ancestors_len-idx].join("/")
-        }
-        DirectionToSearch::LeftToRight => {
-            "/".to_string() + &ancestors[0..idx+1].join("/")
-        }
-    };
-
     match is_ancestor_found {
-        true => Ok(path),
+        true => {
+            let path : String = match args.direction_to_search {
+                DirectionToSearch::RightToLeft => {
+                    "/".to_string() + &ancestors[0..ancestors_len-idx].join("/")
+                }
+                DirectionToSearch::LeftToRight => {
+                    "/".to_string() + &ancestors[0..idx+1].join("/")
+                }
+            };
+            Ok(path)
+        }
         false => Err(())
     }
+
 }
