@@ -63,14 +63,14 @@ fn cda_core(cwd: &str, args : Args) -> Result<String, ()> {
     let ancestors_len = ancestors.len();
     let mut is_ancestor_found = false;
 
-    let mut ancestors_iterator : Vec<&str> = match args.direction_to_search {
+    let ancestors_copy : Vec<&str> = match args.direction_to_search {
         DirectionToSearch::RightToLeft => ancestors.clone().into_iter().rev().collect(),
         DirectionToSearch::LeftToRight => ancestors.clone().into_iter().collect(),
     };
 
     let mut idx = 0;
     let mut curr_occurence = args.occurence;
-    for possible_ancestor in ancestors_iterator {
+    for possible_ancestor in ancestors_copy {
         // // special case when there is an ancestor called `node` BUT current dir is ALSO called
         // // `node`. In such case, go to the ancestor instead of just being where you are.
         // if direction_to_search == DirectionToSearch::RightToLeft
