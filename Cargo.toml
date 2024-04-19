@@ -1,7 +1,18 @@
 [package]
-name = "cda-bin"
+name = "cda"
 version = "0.1.0"
 edition = "2021"
+authors = ["Jyotirmay Shelly <jyotirmay.shelly@gmail.com>"]
+description = "A shell utility to quickly cd to an ancestor!"
+repository = "https://github.com/StaticESC/cda"
+license = "MIT"
+keywords = ["shell", "utility", "cd"]
+categories = ["Command line utilities"]
+readme = "README.md"
+
+[[bin]]
+name = "cda-bin"
+path = "src/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
